@@ -14,7 +14,7 @@ export default function Home() {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="text-2xl font-bold text-navy-700">TikTokAdsPro</div>
           <button className="bg-navy-600 hover:bg-navy-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
-            Enroll Now
+            Get Started Now
           </button>
         </div>
       </nav>
@@ -29,6 +29,9 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl font-bold text-navy-800 mb-6">
               Build A Leads Generation Machine For Your Business Using Tiktok Adverts
             </h1>
+              <h3 className="text-2xl md:text-3xl font-bold text-navy-800 mb-6">
+              Even if you are an absolute beginner
+            </h3>
             <p className="text-lg text-gray-600 mb-6">
               Discover the exact strategies that helped 2,347+ business owners generate over $12.8M in sales using TikTok ads.
             </p>
