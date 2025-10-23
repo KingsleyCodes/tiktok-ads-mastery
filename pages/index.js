@@ -1,19 +1,51 @@
-import Head from 'next/head'
+import { useEffect } from 'react'
 
 export default function Home() {
+  
+  // Define the WhatsApp link and a reusable handler
+  const WHATSAPP_LINK = 'https://chat.whatsapp.com/J423f9MZmVtLnYmdgMY9Fs?mode=wwt';
+  const openWhatsApp = () => window.open(WHATSAPP_LINK, '_blank');
+  
+  // ✅ Force open in external browser if user is inside TikTok app
+  useEffect(() => {
+  try {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const isTikTok = ua.toLowerCase().includes('tiktok');
+    if (isTikTok) {
+      const url = window.location.href;
+      // NOTE: Using window.alert() as in the original code, though a custom modal is generally preferred.
+      window.location.href = `intent://${url.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end`;
+      setTimeout(() => {
+        alert('Please open this page in your browser for the best experience.');
+      }, 3000);
+    }
+  } catch (error) {
+    console.error('Redirect failed:', error);
+  }
+}, []);
+
+
   return (
     <div className="min-h-screen bg-white">
-      <Head>
-        <title>TikTok Ads Mastery | Transform Your Business with Proven TikTok Strategies</title>
-        <meta name="description" content="Stop wasting money on TikTok ads! Learn proven strategies that actually convert and generate real sales for your business." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      {/* Replaced Next/Head with standard head elements directly in the component's return */}
+      <title>TikTok Ads Mastery | Transform Your Business with Proven TikTok Strategies</title>
+      <meta
+        name="description"
+        content="Stop wasting money on TikTok ads! Learn proven strategies that actually convert and generate real sales for your business."
+      />
+      <link rel="icon" href="/favicon.ico" />
+
+      {/* ✅ Your full page content starts here */}
+      {/* --- Everything below remains exactly as in your original --- */}
 
       {/* Navigation */}
       <nav className="bg-white shadow-sm py-4 sticky top-0 z-50">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="text-2xl font-bold text-navy-700">TikTokAdsPro</div>
-          <button className="bg-navy-600 hover:bg-navy-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+          <button
+            onClick={openWhatsApp}
+            className="bg-navy-600 hover:bg-navy-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+          >
             Get Started Now
           </button>
         </div>
@@ -49,7 +81,10 @@ export default function Home() {
                 <span className="text-gray-700">Step-by-step video tutorials</span>
               </div>
             </div>
-            <button className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors w-full md:w-auto">
+            <button
+              onClick={openWhatsApp}
+              className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors w-full md:w-auto"
+            >
               Get Instant Access - $97
             </button>
             <p className="text-gray-500 text-sm mt-4">30-day money-back guarantee • Lifetime access</p>
@@ -113,7 +148,10 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center">
-            <button className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors">
+            <button
+              onClick={openWhatsApp}
+              className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors"
+            >
               Fix These Mistakes Now
             </button>
           </div>
@@ -148,7 +186,10 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center">
-            <button className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors">
+            <button
+              onClick={openWhatsApp}
+              className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors"
+            >
               Start Getting Results
             </button>
           </div>
@@ -177,7 +218,10 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center">
-            <button className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors">
+            <button
+              onClick={openWhatsApp}
+              className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors"
+            >
               See Student Success Stories
             </button>
           </div>
@@ -219,7 +263,10 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center">
-            <button className="bg-white hover:bg-gray-100 text-navy-800 px-8 py-3 rounded-lg font-medium text-lg transition-colors">
+            <button
+              onClick={openWhatsApp}
+              className="bg-white hover:bg-gray-100 text-navy-800 px-8 py-3 rounded-lg font-medium text-lg transition-colors"
+            >
               Read More Testimonials
             </button>
           </div>
@@ -273,7 +320,10 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center">
-            <button className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors">
+            <button
+              onClick={openWhatsApp}
+              className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors"
+            >
               See Full Curriculum
             </button>
           </div>
@@ -347,7 +397,10 @@ export default function Home() {
           <p className="font-bold">🎁 Special Bonus: Enroll today and get 1-on-1 strategy session ($500 value)</p>
         </div>
 
-        <button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 w-full max-w-md">
+        <button
+          onClick={openWhatsApp}
+          className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 w-full max-w-md"
+        >
           Get The Training Now - $97
         </button>
         
@@ -382,7 +435,10 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center">
-            <button className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors">
+            <button
+              onClick={openWhatsApp}
+              className="bg-navy-600 hover:bg-navy-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors"
+            >
               View All FAQs
             </button>
           </div>
@@ -397,7 +453,10 @@ export default function Home() {
             Stop wasting money on ads that do not convert. Start generating real sales with proven TikTok strategies.
           </p>
           <div className="mb-8">
-            <button className="bg-white hover:bg-gray-100 text-navy-800 px-8 py-4 rounded-lg font-medium text-lg transition-colors mb-4 w-full md:w-auto">
+            <button
+              onClick={openWhatsApp}
+              className="bg-white hover:bg-gray-100 text-navy-800 px-8 py-4 rounded-lg font-medium text-lg transition-colors mb-4 w-full md:w-auto"
+            >
               Enroll Now - $97 (One-time)
             </button>
             <p className="text-navy-300">30-day money-back guarantee • Join 2,347+ successful students</p>
@@ -461,11 +520,13 @@ export default function Home() {
       </footer>
      {/* Floating Sticky CTA Button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <button className="bg-orange-500 hover:bg-navy-700 text-white px-6 py-4 rounded-full font-medium text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+        <button
+          onClick={openWhatsApp}
+          className="bg-orange-500 hover:bg-navy-700 text-white px-6 py-4 rounded-full font-medium text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+        >
           Get Access - $97
         </button>
       </div>
     </div>
   )
 }
-
